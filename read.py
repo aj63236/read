@@ -10,3 +10,8 @@ print(application)
 
 for app in application:
 	print(app)
+	print (app[0] , '的價格是' , app[1])
+
+with open( 'item.txt' , 'w' ) as f:
+	for app in application:
+		f.write(app[0] + ',' + app[1] + '\n')
