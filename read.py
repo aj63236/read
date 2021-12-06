@@ -1,6 +1,13 @@
 #-*- coding: utf-8 -*-
 application = []
 
+with open('item.csv' , 'r') as f:
+	for line in f:
+		item , price = line.strip().split(',')
+		application.append([item , price])
+
+
+
 while True:
 	item = input("請輸入商品名稱或按q離開:")
 	if item == 'q':
