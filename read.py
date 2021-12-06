@@ -1,12 +1,17 @@
 #-*- coding: utf-8 -*-
+import os
 application = []
 
-with open('item.csv' , 'r') as f:
+if os.path.isfile('item.csv'):
+	print('Yeah! 有檔案')
+	with open('item.csv' , 'r') as f:
 	for line in f:
+		if '商品名稱,商品價格' in line:
+			continue
 		item , price = line.strip().split(',')
 		application.append([item , price])
-
-
+else:
+	print('找不到檔案...')
 
 while True:
 	item = input("請輸入商品名稱或按q離開:")
@@ -18,7 +23,6 @@ while True:
 print(application)
 
 for app in application:
-	print(app)
 	print (app[0] , '的價格是' , app[1])
 
 with open( 'item.csv' , 'w' ) as f:	
